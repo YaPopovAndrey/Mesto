@@ -6,10 +6,16 @@
     min-width: 24px;
     min-height: 24px;
     border: 1px solid #ffffff;
-    order: 2;
     outline: none;
 }
 
 .profile__edit-button:hover {
     opacity: 60%;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__edit-button {
+        min-width: 18px;
+        min-height: 18px;
+    }
 }
