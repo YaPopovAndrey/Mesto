@@ -16,10 +16,6 @@
     opacity: 50%;
 }
 
-.elements__like:active {
-    background-image: url(../../../images/like-active.png);
-}
-
 @media screen and (max-width: 425px) {
     .elements__like {
         margin: 30px 20px 30px 0;

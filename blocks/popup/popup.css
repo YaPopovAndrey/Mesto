@@ -11,7 +11,3 @@
     bottom: 0;
     display: none;
 }
-
-.popup_is-opened {
-    display: flex;
-}
