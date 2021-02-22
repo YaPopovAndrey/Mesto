@@ -10,14 +10,25 @@
     outline: none;
     padding: 0;
     cursor: pointer;
+    align-self: center;
 }
 
 .profile__add-button:hover {
     opacity: 60%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 600px) {
     .profile__add-button {
+        justify-self: center;
+        min-width: 90px;
+        min-height: 30px;
+        background-size: 15px;
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .profile__add-button {
+        justify-self: center;
         min-width: 282px;
         background-size: 16px;
     }

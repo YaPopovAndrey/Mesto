@@ -7,7 +7,7 @@
     color: #545454;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 449px) {
     .footer__copirate {
         font-size: 14px;
         line-height: 17px;

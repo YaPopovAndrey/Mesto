@@ -4,3 +4,16 @@
     height: auto;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 600px) {
+    .profile__avatar {
+        max-width: 90px;
+    }
+}
+
+@media screen and (max-width: 449px) {
+    .profile__avatar {
+        justify-self: center;
+        max-width: 120px;
+    }
+}

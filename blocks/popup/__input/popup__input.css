@@ -15,3 +15,14 @@
 .popup__input:first-of-type {
     padding: 54px 0 10px 0;
 }
+
+@media screen and (max-width: 600px) {
+    .popup__input {
+        max-width: 238px;
+        padding-bottom: 13px;
+    }
+
+    .popup__input:first-of-type {
+        padding: 75px 0 13px 0;
+    }
+}

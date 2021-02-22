@@ -7,9 +7,22 @@
     list-style: none;
     padding-left: 0;
     padding-top: 50px;
+    justify-items: center;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 940px) {
+    .elements {
+        max-width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 718px) {
+    .elements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 449px) {
     .elements {
         grid-template-columns: 1fr;
         max-width: 320px;
