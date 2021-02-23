@@ -29,7 +29,6 @@
 @media screen and (max-width: 320px) {
     .elements__caption {
         padding: 25px 0 31px 21px;
-        font-size: 24px;
         max-width: 198px;
     }
 }
