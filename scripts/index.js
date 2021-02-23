@@ -13,7 +13,8 @@ let profileProfession = document.querySelector('.profile__profession');
 
 function openPopup() {
     popup.classList.add('popup_is-opened');
-
+    Inputs[0].value = profileName.textContent;
+    Inputs[1].value = profileProfession.textContent;
 }
 
 function closePopup() {
