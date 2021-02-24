@@ -12,6 +12,6 @@
 * адаптиваная вёрстка;
 * позиционирование объектов;
 * структура проетка по правилам Nested БЭМ.
-* Javascript
+* Javascript 
 
 #### [Ссылка на проект "Место"](https://yapopovandrey.github.io/Mesto/)
