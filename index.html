@@ -25,6 +25,24 @@
                 </div>
                 <button type="button" aria-label="Добавить новое место" class="profile__add-button"></button>
             </section>
+
+            <section class="elements">
+                <ul class="elements__content root__section"></ul>
+            </section>
+            
+            <template class="template">
+                <li class="template__card card">
+                    <div class="elements__element">
+                        <button type="button" class="elements__delete"></button>
+                        <img src="" alt="Домбай" class="elements__image">
+                        <div class="elements__title">
+                            <h2 class="elements__caption"></h2>
+                            <button type="button" class="elements__like"></button>
+                        </div>
+                    </div>
+                </li>
+            </template>
+
             <div class="popup">
                 <div class="popup__content">
                     <form action="#" name="popupForm" class="popup__form">
@@ -36,52 +54,29 @@
                     </form>
                 </div>
             </div>
-            <section class="elements">
-            <ul class="elements__content root__section">
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-karachaevsk.jpg" alt="Карачаевск" class="elements__image">
-                        <h2 class="elements__caption">Карачаевск</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-elbrus.png" alt="Гора Эльбрус" class="elements__image">
-                        <h2 class="elements__caption">Гора Эльбрус</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-dombai.png" alt="Домбай" class="elements__image">
-                        <h2 class="elements__caption">Домбай</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-elbrus.png" alt="Гора Эльбрус" class="elements__image">
-                        <h2 class="elements__caption">Гора Эльбрус</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-dombai.png" alt="Домбай" class="elements__image">
-                        <h2 class="elements__caption">Домбай</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-                <li>
-                    <div class="elements__element">
-                        <img src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкесия" class="elements__image">
-                        <h2 class="elements__caption">Карачаево-Черкесия</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </li>
-            </ul>
-        </section>
+
+            <div class="popup popup_add">
+                <div class="popup__content popup__content_add">
+                    <form action="#" name="popupFormAdd" class="popup__form popup__form_add">
+                        <h2 class="popup__title popup__title_add">Новое место</h2>
+                        <input type="text" name="TitleInput" placeholder="Название" class="popup__input popup__input_add">
+                        <input type="text" name="imgInput" placeholder="Ссылка на картинку" class="popup__input popup__input_add">
+                        <button type="submit" class="popup__button-save popup__button-save_add">Создать</button>
+                        <button type="button" aria-label="Закрыть" class="popup__button-close popup__button-close_add"></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="popup-img">
+                <div class="popup-img__content">
+                    <figure class="popup-img__container">
+                        <img src="" alt="Место" class="popup-img__image">
+                        <figcaption class="popup-img__caption"></figcaption>
+                    </figure>     
+                    <button type="button" aria-label="Закрыть" class="popup-img__button-close"></button>
+                </div>
+            </div>
+
         </main>
         <footer class="footer root__section">
             <p class="footer__copirate">&copy; 2021 Mesto Russia</p>

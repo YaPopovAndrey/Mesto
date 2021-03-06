@@ -3,6 +3,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-color: #FFFFFF;
+    background-size: 19px;
     min-width: 22px;
     min-height: 19px;
     border: none;
@@ -29,7 +30,7 @@
     .elements__like {
         margin: 30px 20px 30px 0;
         min-width: 22px;
-        min-height: 19px;
-        background-size: cover;
+        height: 19px;
+        background-size: contain;
     }
 }
