@@ -32,8 +32,10 @@ const initialCards = [
 <li>
     <div class="elements__element">
         <img src=${item.link} alt="Домбай" class="elements__image">
+        <div class="elements__title">
         <h2 class="elements__caption">${item.name}</h2>
         <button type="button" class="elements__like"></button>
+        </div>
     </div>
 </li>
 `;
