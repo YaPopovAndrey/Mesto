@@ -70,16 +70,11 @@ function imgPopup(evt) {
   linkPopup.src = link;
 // Открыть popup
   popupImgOpen.classList.toggle('popup-img_is-opened');
-// Закрыть popup
 }
 
 function closePopupImg() {
   popupImgOpen.classList.toggle('popup-img_is-opened');
 }
-
-
-
-
 
 function deleteCard(evt) {
   const target = evt.target;
