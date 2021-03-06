@@ -45,7 +45,6 @@ const initialCards = [
 
 renderList();
 
-// Кнопка редактирования профиля
 // Кнопки формы
 let popup = document.querySelector('.popup');
 let showPopupButton = document.querySelector('.profile__edit-button');
