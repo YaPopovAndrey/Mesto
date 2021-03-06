@@ -25,27 +25,25 @@ const initialCards = [
     }
   ];
 
-  const container = document.querySelector('.elements__content');
-  
-  function createNewCards (item) {
-    return `
-<li>
-    <div class="elements__element">
-        <img src=${item.link} alt="Домбай" class="elements__image">
-        <div class="elements__title">
-        <h2 class="elements__caption">${item.name}</h2>
-        <button type="button" class="elements__like"></button>
-        </div>
-    </div>
-</li>
-`;
-  };
+const container = document.querySelector('.elements__content');
+const templateElement = document.querySelector('.template');
 
-  function renderList() {
-    const result = initialCards.map(createNewCards).join('');
+function createNewCards(item) {
+  const newItem = templateElement.content.cloneNode(true);
+  const name = newItem.querySelector('.elements__caption');
+  const link = newItem.querySelector('.elements__image');
 
-    container.insertAdjacentHTML('afterbegin', result);
-  }
+  name.textContent = item.name;
+  link.src = item.link;
+
+  return newItem;
+}
+
+function renderList() {
+  const result = initialCards.map(createNewCards);
+
+  container.append(...result);
+}
 
 renderList();
 
@@ -107,7 +105,7 @@ function AddFormSubmit(evt) {
   const InputAddLink = InputsAdd[1].value;
 
   const newCard = createNewCards({link: InputAddLink, name: InputAddTitle});
-  container.insertAdjacentHTML('afterbegin', newCard);
+  container.prepend(newCard);
   closePopupAdd();
   InputsAdd[0].value = '';
   InputsAdd[1].value = '';
