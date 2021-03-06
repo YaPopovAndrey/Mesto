@@ -51,6 +51,36 @@ let profileProfession = document.querySelector('.profile__profession');
 const container = document.querySelector('.elements__content');
 const templateElement = document.querySelector('.template');
 
+const popupImgOpen = document.querySelector('.popup-img');
+const popupImgClose = document.querySelector('.popup-img__button-close');
+
+// Найти карточку по которой был клик
+function imgPopup(evt) {
+  evt.preventDefault();
+
+  const target = evt.target;
+  const currentTarget = target.closest('.card');
+  // Получить данные (адрес картинки, название места)
+  const caption = currentTarget.querySelector('.elements__caption').textContent;
+  const link = currentTarget.querySelector('.elements__image').src;
+// Передать данные в popup
+  const captionPopup = document.querySelector('.popup-img__caption');
+  captionPopup.textContent = caption;
+  const linkPopup = document.querySelector('.popup-img__image');
+  linkPopup.src = link;
+// Открыть popup
+  popupImgOpen.classList.toggle('popup-img_is-opened');
+// Закрыть popup
+}
+
+function closePopupImg() {
+  popupImgOpen.classList.toggle('popup-img_is-opened');
+}
+
+
+
+
+
 function deleteCard(evt) {
   const target = evt.target;
   const currentCard = target.closest('.card');
@@ -70,6 +100,9 @@ function addCardListeners(card) {
 
   const likeButton = card.querySelector('.elements__like');
   likeButton.addEventListener('click', likeCard);
+
+  const clickImage = card.querySelector('.elements__image');
+  clickImage.addEventListener('click', imgPopup);
 }
 
 function createNewCards(item) {
@@ -146,3 +179,5 @@ closePopupButton.addEventListener('click', closePopup);
 showPopupButtonAdd.addEventListener('click', openPopupAdd);
 closePopupButtonAdd.addEventListener('click', closePopupAdd);
 formElementAdd.addEventListener('submit', AddFormSubmit);
+
+popupImgClose.addEventListener('click', closePopupImg);
