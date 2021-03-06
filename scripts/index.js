@@ -26,19 +26,21 @@ const initialCards = [
   ];
 
   const container = document.querySelector('.elements__content');
+  
+  function createNewCards (item) {
+    return `
+<li>
+    <div class="elements__element">
+        <img src=${item.link} alt="Домбай" class="elements__image">
+        <h2 class="elements__caption">${item.name}</h2>
+        <button type="button" class="elements__like"></button>
+    </div>
+</li>
+`;
+  };
 
   function renderList() {
-    const result = initialCards.map(function(item) {
-      return `
-  <li>
-      <div class="elements__element">
-          <img src=${item.link} alt="Домбай" class="elements__image">
-          <h2 class="elements__caption">${item.name}</h2>
-          <button type="button" class="elements__like"></button>
-      </div>
-  </li>
-  `;
-    }).join('');
+    const result = initialCards.map(createNewCards).join('');
 
     container.insertAdjacentHTML('afterbegin', result);
   }
@@ -97,9 +99,22 @@ function closePopupAdd() {
   popupAdd.classList.remove('popup_is-opened');
 }
 
+function AddFormSubmit(evt) {
+  evt.preventDefault();
+  const InputAddTitle = InputsAdd[0].value;
+  const InputAddLink = InputsAdd[1].value;
+
+  const newCard = createNewCards({link: InputAddLink, name: InputAddTitle});
+  container.insertAdjacentHTML('afterbegin', newCard);
+  closePopupAdd();
+  InputsAdd[0].value = '';
+  InputsAdd[1].value = '';
+}
+
 formElement.addEventListener('submit', formSubmitHandler);
 showPopupButton.addEventListener('click', openPopup);
 closePopupButton.addEventListener('click', closePopup);
 
 showPopupButtonAdd.addEventListener('click', openPopupAdd);
 closePopupButtonAdd.addEventListener('click', closePopupAdd);
+formElementAdd.addEventListener('submit', AddFormSubmit);
