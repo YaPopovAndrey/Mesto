@@ -25,6 +25,11 @@
                 </div>
                 <button type="button" aria-label="Добавить новое место" class="profile__add-button"></button>
             </section>
+
+            <section class="elements">
+                <ul class="elements__content root__section"></ul>
+            </section>
+
             <div class="popup">
                 <div class="popup__content">
                     <form action="#" name="popupForm" class="popup__form">
@@ -36,11 +41,19 @@
                     </form>
                 </div>
             </div>
-            <section class="elements">
-            <ul class="elements__content root__section">
-                
-            </ul>
-        </section>
+
+            <div class="popup popup_add">
+                <div class="popup__content popup__content_add">
+                    <form action="#" name="popupFormAdd" class="popup__form popup__form_add">
+                        <h2 class="popup__title popup__title_add">Новое место</h2>
+                        <input type="text" name="TitleInput" placeholder="Название" class="popup__input popup__input_add">
+                        <input type="text" name="imgInput" placeholder="Ссылка на картинку" class="popup__input popup__input_add">
+                        <button type="submit" class="popup__button-save popup__button-save_add">Создать</button>
+                        <button type="button" aria-label="Закрыть" class="popup__button-close popup__button-close_add"></button>
+                    </form>
+                </div>
+            </div>
+
         </main>
         <footer class="footer root__section">
             <p class="footer__copirate">&copy; 2021 Mesto Russia</p>
