@@ -1,59 +1,3 @@
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
-
-// Кнопки формы
-let popup = document.querySelector('.popup');
-let showPopupButton = document.querySelector('.profile__edit-button');
-let closePopupButton = document.querySelector('.popup__button-close');
-
-// Кнопка добавления нового места
-// Кнопки формы
-let popupAdd = document.querySelector('.popup_add');
-let showPopupButtonAdd = document.querySelector('.profile__add-button');
-let closePopupButtonAdd = document.querySelector('.popup__button-close_add');
-
-// Поля ввода формы профиля
-let formElement = document.querySelector('.popup__form');
-let Inputs = document.querySelectorAll('.popup__input');
-
-// Поля ввода формы нового места
-let formElementAdd = document.querySelector('.popup__form_add');
-let InputsAdd = document.querySelectorAll('.popup__input_add');
-
-// Поля профиля
-let profileName =  document.querySelector('.profile__name');
-let profileProfession = document.querySelector('.profile__profession');
-
-const container = document.querySelector('.elements__content');
-const templateElement = document.querySelector('.template');
-
-const popupImgOpen = document.querySelector('.popup-img');
-const popupImgClose = document.querySelector('.popup-img__button-close');
-
 // Найти карточку по которой был клик
 function imgPopup(evt) {
   evt.preventDefault();
@@ -63,12 +7,12 @@ function imgPopup(evt) {
   // Получить данные (адрес картинки, название места)
   const caption = currentTarget.querySelector('.elements__caption').textContent;
   const link = currentTarget.querySelector('.elements__image').src;
-// Передать данные в popup
+  // Передать данные в popup
   const captionPopup = document.querySelector('.popup-img__caption');
   captionPopup.textContent = caption;
   const linkPopup = document.querySelector('.popup-img__image');
   linkPopup.src = link;
-// Открыть popup
+  // Открыть popup
   popupImgOpen.classList.toggle('popup-img_is-opened');
 }
 
@@ -112,7 +56,7 @@ function createNewCards(item) {
 }
 
 function renderList() {
-  const result = initialCards.map(function(item) {
+  const result = initialCards.map(function (item) {
     const newCard = createNewCards(item);
     addCardListeners(newCard);
 
@@ -126,9 +70,9 @@ renderList();
 
 // Редактирование профиля
 function openPopup() {
-    popup.classList.add('popup_is-opened');
-    Inputs[0].value = profileName.textContent;
-    Inputs[1].value = profileProfession.textContent;
+  popup.classList.add('popup_is-opened');
+  Inputs[0].value = profileName.textContent;
+  Inputs[1].value = profileProfession.textContent;
 }
 
 function closePopup() {
@@ -157,7 +101,7 @@ function AddFormSubmit(evt) {
   const InputAddTitle = InputsAdd[0].value;
   const InputAddLink = InputsAdd[1].value;
 
-  const newCard = createNewCards({link: InputAddLink, name: InputAddTitle});
+  const newCard = createNewCards({ link: InputAddLink, name: InputAddTitle });
 
   addCardListeners(newCard);
 
