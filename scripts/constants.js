@@ -54,8 +54,10 @@ const container = document.querySelector('.elements__content');
 const templateElement = document.querySelector('.template');
 
 const popupImg = document.querySelector('.popup_img');
-const popupImgCloseBtn = document.querySelector('.popup-img__button-close');
+const popupImgCloseBtn = document.querySelector('.popup__button-close_img');
 
-const captionPopup = document.querySelector('.popup-img__caption');
-const linkPopup = document.querySelector('.popup-img__image');
-const altPopup = document.querySelector('.popup-img__image');
+const captionPopup = document.querySelector('.popup__caption');
+const linkPopup = document.querySelector('.popup__image');
+const altPopup = document.querySelector('.popup__image');
+
+const popup = document.querySelectorAll('.popup');

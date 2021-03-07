@@ -12,11 +12,11 @@ function openImagePopup(evt) {
   linkPopup.src = link;
   altPopup.alt = caption;
   // Открыть popup
-  popupImg.classList.toggle('popup-img_is-opened');
+  openPopup(popupImg);
 }
 
 function closePopupImg() {
-  popupImg.classList.toggle('popup-img_is-opened');
+  closePopup(popupImg);
 }
 
 function deleteCard(evt) {
@@ -70,13 +70,13 @@ renderInitialCards();
 
 // Редактирование профиля
 function openEditProfilePopup() {
-  popupEditProfile.classList.add('popup_is-opened');
+  openPopup(popupEditProfile);
   inputName.value = profileName.textContent;
   inputJob.value = profileProfession.textContent;
 }
 
-function closePopup() {
-  popupEditProfile.classList.remove('popup_is-opened');
+function closeEditProfilePopup() {
+  closePopup(popupEditProfile);
 }
 
 function editProfileFormSubmitHandler(evt) {
@@ -84,16 +84,16 @@ function editProfileFormSubmitHandler(evt) {
 
   profileName.textContent = inputName.value;
   profileProfession.textContent = inputJob.value;
-  closePopup();
+  closeEditProfilePopup();
 }
 
 // Добавление нового места
 function openPopupAdd() {
-  popupIAddCard.classList.add('popup_is-opened');
+  openPopup(popupIAddCard);
 }
 
 function closePopupAdd() {
-  popupIAddCard.classList.remove('popup_is-opened');
+  closePopup(popupIAddCard);
 }
 
 function AddFormSubmit(evt) {
@@ -108,12 +108,21 @@ function AddFormSubmit(evt) {
   container.prepend(newCard);
   closePopupAdd();
   inputTitle.value = '';
-  input.value = '';
+  inputLink.value = '';
+}
+
+// открытие всех поп-апов
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
+}
+// закрытие всех поп-апов
+function closePopup(popup) {
+  popup.classList.remove('popup_is-opened');
 }
 
 formElement.addEventListener('submit', editProfileFormSubmitHandler);
 popupIEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
-popupIEditProfileCloseBtn.addEventListener('click', closePopup);
+popupIEditProfileCloseBtn.addEventListener('click', closeEditProfilePopup);
 
 popupIAddCardOpenBtn.addEventListener('click', openPopupAdd);
 popupIAddCardCloseBtn.addEventListener('click', closePopupAdd);
