@@ -26,23 +26,25 @@ const initialCards = [
   ];
 
   // Кнопки формы
-const popup = document.querySelector('.popup');
-const showPopupButton = document.querySelector('.profile__edit-button');
-const closePopupButton = document.querySelector('.popup__button-close');
+const popupEditProfile = document.querySelector('.popup_edit-profile');
+const popupIEditProfileOpenBtn = document.querySelector('.profile__edit-button');
+const popupIEditProfileCloseBtn = document.querySelector('.popup__button-close');
 
 // Кнопка добавления нового места
 // Кнопки формы
-const popupAdd = document.querySelector('.popup_add');
-const showPopupButtonAdd = document.querySelector('.profile__add-button');
-const closePopupButtonAdd = document.querySelector('.popup__button-close_add');
+const popupIAddCard = document.querySelector('.popup_add');
+const popupIAddCardOpenBtn = document.querySelector('.profile__add-button');
+const popupIAddCardCloseBtn = document.querySelector('.popup__button-close_add');
 
 // Поля ввода формы профиля
 const formElement = document.querySelector('.popup__form');
-const Inputs = document.querySelectorAll('.popup__input');
+const inputName = document.querySelector('.popup__input_name');
+const inputJob = document.querySelector('.popup__input_job');
 
 // Поля ввода формы нового места
 const formElementAdd = document.querySelector('.popup__form_add');
-const InputsAdd = document.querySelectorAll('.popup__input_add');
+const inputTitle = document.querySelector('.popup__input_title');
+const inputLink = document.querySelector('.popup__input_link');
 
 // Поля профиля
 const profileName = document.querySelector('.profile__name');
@@ -51,5 +53,9 @@ const profileProfession = document.querySelector('.profile__profession');
 const container = document.querySelector('.elements__content');
 const templateElement = document.querySelector('.template');
 
-const popupImgOpen = document.querySelector('.popup-img');
-const popupImgClose = document.querySelector('.popup-img__button-close');
+const popupImg = document.querySelector('.popup_img');
+const popupImgCloseBtn = document.querySelector('.popup-img__button-close');
+
+const captionPopup = document.querySelector('.popup-img__caption');
+const linkPopup = document.querySelector('.popup-img__image');
+const altPopup = document.querySelector('.popup-img__image');
