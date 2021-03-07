@@ -94,6 +94,8 @@ function openPopupAdd() {
 
 function closePopupAdd() {
   closePopup(popupIAddCard);
+  inputTitle.value = '';
+  inputLink.value = '';
 }
 
 function AddFormSubmit(evt) {
