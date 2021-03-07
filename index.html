@@ -43,12 +43,12 @@
                 </li>
             </template>
 
-            <div class="popup">
+            <div class="popup popup_edit-profile">
                 <div class="popup__content">
                     <form action="#" name="popupForm" class="popup__form">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input type="text" name="nameInput" value="Жак-Ив Кусто" class="popup__input">
-                        <input type="text" name="jobInput" value="Исследователь океана" class="popup__input">
+                        <input type="text" name="nameInput" value="Жак-Ив Кусто" placeholder="Имя" class="popup__input popup__input_name">
+                        <input type="text" name="jobInput" value="Исследователь океана" placeholder="Вид деятельности" class="popup__input popup__input_job">
                         <button type="submit" class="popup__button-save">Сохранить</button>
                         <button type="button" aria-label="Закрыть" class="popup__button-close"></button>
                     </form>
@@ -60,9 +60,9 @@
                     <form action="#" name="popupFormAdd" class="popup__form popup__form_add">
                         <h2 class="popup__title popup__title_add">Новое место</h2>
                         <input type="text" name="TitleInput" placeholder="Название"
-                            class="popup__input popup__input_add">
+                            class="popup__input popup__input_title">
                         <input type="text" name="imgInput" placeholder="Ссылка на картинку"
-                            class="popup__input popup__input_add">
+                            class="popup__input popup__input_link">
                         <button type="submit" class="popup__button-save popup__button-save_add">Создать</button>
                         <button type="button" aria-label="Закрыть"
                             class="popup__button-close popup__button-close_add"></button>
@@ -70,13 +70,13 @@
                 </div>
             </div>
 
-            <div class="popup-img">
-                <div class="popup-img__content">
-                    <figure class="popup-img__container">
-                        <img src="#" alt="Место" class="popup-img__image">
-                        <figcaption class="popup-img__caption"></figcaption>
+            <div class="popup popup_img">
+                <div class="popup__content_img">
+                    <figure class="popup__container">
+                        <img src="" alt="Место" class="popup__image">
+                        <figcaption class="popup__caption"></figcaption>
                     </figure>
-                    <button type="button" aria-label="Закрыть" class="popup-img__button-close"></button>
+                    <button type="button" aria-label="Закрыть" class="popup__button-close popup__button-close_img"></button>
                 </div>
             </div>
 
