@@ -46,12 +46,14 @@ function addCardListeners(card) {
 function createCard(item) {
   const newItem = templateElement.content.cloneNode(true);
   const name = newItem.querySelector('.elements__caption');
-  const link = newItem.querySelector('.elements__image');
+  const cardImage = newItem.querySelector('.elements__image');
+  const altImage = newItem.querySelector('.elements__image');
 
   addCardListeners(newItem);
 
   name.textContent = item.name;
-  link.src = item.link;
+  cardImage.src = item.link;
+  altImage.alt = item.name;
 
   return newItem;
 }
@@ -89,14 +91,16 @@ function editProfileFormSubmitHandler(evt) {
 
 // Добавление нового места
 function openPopupAdd() {
-  openPopup(popupIAddCard);
+  openPopup(popupAddCard);
 }
 
 function closePopupAdd() {
-  closePopup(popupIAddCard);
+  closePopup(popupAddCard);
+  inputTitle.value = '';
+  inputLink.value = '';
 }
 
-function AddFormSubmit(evt) {
+function addFormSubmit(evt) {
   evt.preventDefault();
   const inputAddTitle = inputTitle.value;
   const inputAddLink = inputLink.value;
@@ -121,11 +125,11 @@ function closePopup(popup) {
 }
 
 formElement.addEventListener('submit', editProfileFormSubmitHandler);
-popupIEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
-popupIEditProfileCloseBtn.addEventListener('click', closeEditProfilePopup);
+popupEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
+popupEditProfileCloseBtn.addEventListener('click', closeEditProfilePopup);
 
-popupIAddCardOpenBtn.addEventListener('click', openPopupAdd);
-popupIAddCardCloseBtn.addEventListener('click', closePopupAdd);
-formElementAdd.addEventListener('submit', AddFormSubmit);
+popupAddCardOpenBtn.addEventListener('click', openPopupAdd);
+popupAddCardCloseBtn.addEventListener('click', closePopupAdd);
+formElementAdd.addEventListener('submit', addFormSubmit);
 
 popupImgCloseBtn.addEventListener('click', closePopupImg);
