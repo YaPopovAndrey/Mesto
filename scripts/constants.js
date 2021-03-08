@@ -27,14 +27,14 @@ const initialCards = [
 
   // Кнопки формы
 const popupEditProfile = document.querySelector('.popup_edit-profile');
-const popupIEditProfileOpenBtn = document.querySelector('.profile__edit-button');
-const popupIEditProfileCloseBtn = document.querySelector('.popup__button-close');
+const popupEditProfileOpenBtn = document.querySelector('.profile__edit-button');
+const popupEditProfileCloseBtn = document.querySelector('.popup__button-close');
 
 // Кнопка добавления нового места
 // Кнопки формы
-const popupIAddCard = document.querySelector('.popup_add');
-const popupIAddCardOpenBtn = document.querySelector('.profile__add-button');
-const popupIAddCardCloseBtn = document.querySelector('.popup__button-close_add');
+const popupAddCard = document.querySelector('.popup_add');
+const popupAddCardOpenBtn = document.querySelector('.profile__add-button');
+const popupAddCardCloseBtn = document.querySelector('.popup__button-close_add');
 
 // Поля ввода формы профиля
 const formElement = document.querySelector('.popup__form');
