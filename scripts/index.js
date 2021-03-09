@@ -10,7 +10,7 @@ function openImagePopup(evt) {
   // Передать данные в popup
   captionPopup.textContent = caption;
   linkPopup.src = link;
-  altPopup.alt = caption;
+  linkPopup.alt = caption;
   // Открыть popup
   openPopup(popupImg);
 }
@@ -47,13 +47,11 @@ function createCard(item) {
   const newItem = templateElement.content.cloneNode(true);
   const name = newItem.querySelector('.elements__caption');
   const cardImage = newItem.querySelector('.elements__image');
-  const altImage = newItem.querySelector('.elements__image');
-
   addCardListeners(newItem);
 
   name.textContent = item.name;
   cardImage.src = item.link;
-  altImage.alt = item.name;
+  cardImage.alt = item.name;
 
   return newItem;
 }
