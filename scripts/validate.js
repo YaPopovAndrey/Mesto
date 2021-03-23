@@ -7,7 +7,6 @@ const enableObject = {
     errorClass: 'popup__error_visible'
 };
 
-// добавляем класс с ошибкой для поля ввода
 const showInputError = (formSelector, inputSelector, errorMessage) => {
     const inputError = formSelector.querySelector(`.${inputSelector.id}-error`);
     inputSelector.classList.add(enableObject.inputErrorClass);
@@ -15,7 +14,6 @@ const showInputError = (formSelector, inputSelector, errorMessage) => {
     inputError.classList.add(enableObject.errorClass);
 };
 
-// удаляем класс с ошибкой для поля ввода
 const hideInputError = (formSelector, inputSelector) => {
     const inputError = formSelector.querySelector(`.${inputSelector.id}-error`);
     inputSelector.classList.remove(enableObject.inputErrorClass);
@@ -23,7 +21,6 @@ const hideInputError = (formSelector, inputSelector) => {
     inputError.textContent = '';
 };
 
-// проверяем валидность поля ввода
 const isValid = (formSelector, inputSelector) => {
     if (!inputSelector.validity.valid) {
         showInputError(formSelector, inputSelector, inputSelector.validationMessage);
@@ -31,13 +28,6 @@ const isValid = (formSelector, inputSelector) => {
         hideInputError(formSelector, inputSelector);
     }
 };
-
-// вешаем слушаетель на все поля ввода с функцией которая проверяет 
-// валидность поля(так при каждом нажатии она будет валидировать поле)
-
-
-
-
 
 const hasInvalidInput = (inputList) => {
     return inputList.some((inputSelector) => {
@@ -58,7 +48,7 @@ const toggleButtonState = (inputList, submitButtonSelector) => {
 const setEventListeners = (formSelector) => {
     const inputList = Array.from(formSelector.querySelectorAll(enableObject.inputSelector));
     const submitButtonSelector = formSelector.querySelector(enableObject.submitButtonSelector);
-    
+
     toggleButtonState(inputList, submitButtonSelector);
 
     inputList.forEach((inputSelector) => {

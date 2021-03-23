@@ -140,11 +140,9 @@ document.addEventListener('keydown', function(evt) {
 });
 
 document.addEventListener('click', function (evt) {
-  // если нажали на «Лайк», поставь лайк
   if (evt.target.classList.contains('popup')) {
     closePopupOverlayEsc();
   }
-
 });
 
 formElement.addEventListener('submit', editProfileFormSubmitHandler);
