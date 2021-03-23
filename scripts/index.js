@@ -90,6 +90,11 @@ function editProfileFormSubmitHandler(evt) {
 // Добавление нового места
 function openPopupAdd() {
   openPopup(popupAddCard);
+
+  const inputList = Array.from(popupAddCard.querySelectorAll('.popup__input'));
+  const submitButtonSelector = popupAddCard.querySelector('.popup__button');
+
+  toggleButtonState(inputList, submitButtonSelector);
 }
 
 function closePopupAdd() {
@@ -121,6 +126,26 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_is-opened');
 }
+
+const closePopupOverlayEsc = () => {
+    closePopup(popupAddCard);
+    closePopup(popupEditProfile);
+    closePopup(popupImg);
+};
+
+document.addEventListener('keydown', function(evt) {
+  if (evt.key === 'Escape') {
+    closePopupOverlayEsc();
+  }
+});
+
+document.addEventListener('click', function (evt) {
+  // если нажали на «Лайк», поставь лайк
+  if (evt.target.classList.contains('popup')) {
+    closePopupOverlayEsc();
+  }
+
+});
 
 formElement.addEventListener('submit', editProfileFormSubmitHandler);
 popupEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
