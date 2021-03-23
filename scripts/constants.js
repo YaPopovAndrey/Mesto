@@ -59,4 +59,4 @@ const popupImgCloseBtn = document.querySelector('.popup__button-close_img');
 const captionPopup = document.querySelector('.popup__caption');
 const linkPopup = document.querySelector('.popup__image');
 
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
