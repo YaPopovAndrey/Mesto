@@ -131,6 +131,8 @@ const closePopupOverlayEsc = () => {
     closePopup(popupAddCard);
     closePopup(popupEditProfile);
     closePopup(popupImg);
+    inputTitle.value = '';
+    inputLink.value = '';
 };
 
 document.addEventListener('keydown', function(evt) {
