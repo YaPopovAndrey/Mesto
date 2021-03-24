@@ -60,3 +60,6 @@ const captionPopup = document.querySelector('.popup__caption');
 const linkPopup = document.querySelector('.popup__image');
 
 const popups = document.querySelectorAll('.popup');
+
+const inputList = Array.from(popupAddCard.querySelectorAll('.popup__input'));
+const submitButtonSelector = popupAddCard.querySelector('.popup__button');

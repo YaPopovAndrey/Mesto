@@ -83,9 +83,6 @@ function editProfileFormSubmitHandler(evt) {
 function openPopupAdd() {
   openPopup(popupAddCard);
 
-  const inputList = Array.from(popupAddCard.querySelectorAll('.popup__input'));
-  const submitButtonSelector = popupAddCard.querySelector('.popup__button');
-
   toggleButtonState(inputList, submitButtonSelector);
 }
 
@@ -119,8 +116,6 @@ function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-opened');
     closePopup(openedPopup);
-    inputTitle.value = '';
-    inputLink.value = '';
   }
 }
 
@@ -128,8 +123,6 @@ popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_is-opened')) {
       closePopup(popup);
-      inputTitle.value = '';
-      inputLink.value = '';
     }
     if (evt.target.classList.contains('popup__button-close')) {
       closePopup(popup);
