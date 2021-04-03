@@ -1,65 +1,66 @@
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
+// const initialCards = [
+//     {
+//       name: 'Архыз',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+//     },
+//     {
+//       name: 'Челябинская область',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+//     },
+//     {
+//       name: 'Иваново',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+//     },
+//     {
+//       name: 'Камчатка',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+//     },
+//     {
+//       name: 'Холмогорский район',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+//     },
+//     {
+//       name: 'Байкал',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+//     }
+//   ];
 
-  // Кнопки формы
-const popupEditProfile = document.querySelector('.popup_edit-profile');
-const popupEditProfileOpenBtn = document.querySelector('.profile__edit-button');
-const popupEditProfileCloseBtn = document.querySelector('.popup__button-close');
 
-// Кнопка добавления нового места
-// Кнопки формы
-const popupAddCard = document.querySelector('.popup_add');
-const popupAddCardOpenBtn = document.querySelector('.profile__add-button');
-const popupAddCardCloseBtn = document.querySelector('.popup__button-close_add');
+//   // Кнопки формы
+// const popupEditProfile = document.querySelector('.popup_edit-profile');
+// const popupEditProfileOpenBtn = document.querySelector('.profile__edit-button');
+// const popupEditProfileCloseBtn = document.querySelector('.popup__button-close');
 
-// Поля ввода формы профиля
-const formElement = document.querySelector('.popup__form');
-const inputName = document.querySelector('.popup__input_name');
-const inputJob = document.querySelector('.popup__input_job');
+// // Кнопка добавления нового места
+// // Кнопки формы
+// const popupAddCard = document.querySelector('.popup_add');
+// const popupAddCardOpenBtn = document.querySelector('.profile__add-button');
+// const popupAddCardCloseBtn = document.querySelector('.popup__button-close_add');
 
-// Поля ввода формы нового места
-const formElementAdd = document.querySelector('.popup__form_add');
-const inputTitle = document.querySelector('.popup__input_title');
-const inputLink = document.querySelector('.popup__input_link');
+// // Поля ввода формы профиля
+// const formElement = document.querySelector('.popup__form');
+// const inputName = document.querySelector('.popup__input_name');
+// const inputJob = document.querySelector('.popup__input_job');
 
-// Поля профиля
-const profileName = document.querySelector('.profile__name');
-const profileProfession = document.querySelector('.profile__profession');
+// // Поля ввода формы нового места
+// const formElementAdd = document.querySelector('.popup__form_add');
+// const inputTitle = document.querySelector('.popup__input_title');
+// const inputLink = document.querySelector('.popup__input_link');
 
-const container = document.querySelector('.elements__content');
-const templateElement = document.querySelector('.template');
+// // Поля профиля
+// const profileName = document.querySelector('.profile__name');
+// const profileProfession = document.querySelector('.profile__profession');
 
-const popupImg = document.querySelector('.popup_img');
-const popupImgCloseBtn = document.querySelector('.popup__button-close_img');
+// const container = document.querySelector('.elements__content');
+// const templateElement = document.querySelector('.template');
 
-const captionPopup = document.querySelector('.popup__caption');
-const linkPopup = document.querySelector('.popup__image');
+// const popupImg = document.querySelector('.popup_img');
+// const popupImgCloseBtn = document.querySelector('.popup__button-close_img');
 
-const popups = document.querySelectorAll('.popup');
+// const captionPopup = document.querySelector('.popup__caption');
+// const linkPopup = document.querySelector('.popup__image');
 
-const inputList = Array.from(popupAddCard.querySelectorAll('.popup__input'));
-const submitButtonSelector = popupAddCard.querySelector('.popup__button');
+// const popups = document.querySelectorAll('.popup');
+
+// const inputList = Array.from(popupAddCard.querySelectorAll('.popup__input'));
+// const submitButtonSelector = popupAddCard.querySelector('.popup__button');
