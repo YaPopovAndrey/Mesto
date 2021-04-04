@@ -157,7 +157,7 @@ function editProfileFormSubmitHandler(evt) {
 function openPopupAdd() {
   openPopup(popupAddCard);
 
-  toggleButtonState(inputList, submitButtonSelector);
+  submitButtonSelector.setAttribute('disabled', 'true');
 }
 
 function addFormSubmit(evt) {
