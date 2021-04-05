@@ -7,10 +7,10 @@ export default class Card {
 
   _getTemplate() {
     const cardElement = document
-    .querySelector('.template')
-    .content
-    .querySelector('.template__card')
-    .cloneNode(true);
+      .querySelector('.template')
+      .content
+      .querySelector('.template__card')
+      .cloneNode(true);
 
     return cardElement;
   }
@@ -48,17 +48,17 @@ export default class Card {
 
   _openPopupImg() {
     this._element.closest('.card');
-  
+
     const caption = this._element.querySelector('.elements__caption').textContent;
     const link = this._element.querySelector('.elements__image').src;
- 
+
     captionPopup.textContent = caption;
     linkPopup.src = link;
     linkPopup.alt = caption;
- 
+
     openPopup(popupImg);
   }
 
 }
 
-import {captionPopup, linkPopup, popupImg, openPopup} from './index.js';
+import { captionPopup, linkPopup, popupImg, openPopup } from './index.js';
