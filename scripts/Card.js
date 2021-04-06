@@ -7,7 +7,7 @@ export default class Card {
 
   _getTemplate() {
     const cardElement = document
-      .querySelector('.template')
+      .querySelector(this._cardSelector)
       .content
       .querySelector('.template__card')
       .cloneNode(true);
@@ -17,8 +17,13 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._elementsLike = this._element.querySelector('.elements__like');
+    this._elementsdelete = this._element.querySelector('.elements__delete');
+    this._elementsImage = this._element.querySelector('.elements__image');
 
-    this._element.querySelector('.elements__image').src = this._link;
+
+    this._elementsImage.src = this._link;
+    this._elementsImage.alt = this._name;
     this._element.querySelector('.elements__caption').textContent = this._name;
 
     this._setEventListeners();
@@ -27,30 +32,28 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector('.elements__like').addEventListener('click', () => {
+    this._elementsLike.addEventListener('click', () => {
       this._likeCard();
     });
-    this._element.querySelector('.elements__delete').addEventListener('click', () => {
+    this._elementsdelete.addEventListener('click', () => {
       this._deleteCard();
     });
-    this._element.querySelector('.elements__image').addEventListener('click', () => {
+    this._elementsImage.addEventListener('click', () => {
       this._openPopupImg();
     })
   }
 
   _likeCard() {
-    this._element.querySelector('.elements__like').classList.toggle('elements__like_active');
+    this._elementsLike.classList.toggle('elements__like_active');
   }
 
   _deleteCard() {
-    this._element.querySelector('.elements__delete').closest('.card').remove();
+    this._elementsdelete.closest('.card').remove();
   }
 
   _openPopupImg() {
-    this._element.closest('.card');
-
     const caption = this._element.querySelector('.elements__caption').textContent;
-    const link = this._element.querySelector('.elements__image').src;
+    const link = this._elementsImage.src;
 
     captionPopup.textContent = caption;
     linkPopup.src = link;
@@ -61,4 +64,5 @@ export default class Card {
 
 }
 
-import { captionPopup, linkPopup, popupImg, openPopup } from './index.js';
+import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
+import { openPopup } from '../utils/utils.js';
