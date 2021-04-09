@@ -1,23 +1,96 @@
 import Card from './Card.js';
-import FormValidator from './FormValidator.js';
-import { formElement, formElementAdd } from '../utils/constants.js';
 import { initialCards } from '../utils/initial-сards.js';
+import { openPopup, closePopup } from '../utils/utils.js';
+import {
+  templateCard,
+  popups,
+  formElement,
+  formElementAdd,
+  popupEditProfileOpenBtn,
+  popupAddCardOpenBtn,
+  popupAddCard,
+  submitButtonSelector,
+  container,
+  popupEditProfile,
+  inputName,
+  profileName,
+  inputJob,
+  profileProfession,
+  inputTitle,
+  inputLink
+} from '../utils/constants.js';
+import { validationConfig, FormValidator } from './FormValidator.js';
+
+function openEditProfilePopup() {
+  openPopup(popupEditProfile);
+  inputName.value = profileName.textContent;
+  inputJob.value = profileProfession.textContent;
+
+  deleteError(popupEditProfile);
+}
+
+function deleteError(formElement) {
+  const del = new FormValidator(validationConfig, formElement);
+  del.deleteErrors(formElement);
+}
+
+function editProfileFormSubmitHandler(evt) {
+  evt.preventDefault();
+
+  profileName.textContent = inputName.value;
+  profileProfession.textContent = inputJob.value;
+  closePopup(popupEditProfile);
+}
+
+function openPopupAdd() {
+  openPopup(popupAddCard);
+  deleteError(popupAddCard);
+
+  submitButtonSelector.classList.add('popup__button_disabled');
+  submitButtonSelector.setAttribute('disabled', 'true');
+
+
+
+  inputTitle.value = '';
+  inputLink.value = '';
+}
+
+function addFormSubmit(evt) {
+  evt.preventDefault();
+  const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }, templateCard);
+
+  container.prepend(cardElement);
+  closePopup(popupAddCard);
+}
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_is-opened')) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__button-close')) {
+      closePopup(popup);
+    }
+  });
+});
+
+function createCard(data, template) {
+  const card = new Card(data, template);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
+formElement.addEventListener('submit', editProfileFormSubmitHandler);
+formElementAdd.addEventListener('submit', addFormSubmit);
+popupEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
+popupAddCardOpenBtn.addEventListener('click', openPopupAdd);
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '.template');
-  const cardElement = card.generateCard();
-  const container = document.querySelector('.elements__content');
+  const cardElement = createCard(item, templateCard);
 
   container.append(cardElement);
 });
 
-const validationConfig = {
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-};
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 editProfileFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(validationConfig, formElementAdd);

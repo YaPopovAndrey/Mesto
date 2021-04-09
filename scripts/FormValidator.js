@@ -1,4 +1,4 @@
-export default class FormValidator {
+class FormValidator {
     constructor(validationConfig, formElement) {
         this._formElement = formElement;
         this._inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
@@ -18,6 +18,16 @@ export default class FormValidator {
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.textContent = '';
         errorElement.classList.remove(this._errorClass);
+    }
+
+    deleteErrors(formElement) {
+        Array.from(formElement.querySelectorAll(validationConfig.inputSelector)).forEach(input => {
+            input.classList.remove(validationConfig.inputErrorClass);
+        });
+        Array.from(formElement.querySelectorAll(validationConfig.inputError)).forEach(error => {
+            error.classList.remove(validationConfig.errorClass);
+        });
+        formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
     }
 
     _isValid() {
@@ -67,3 +77,14 @@ export default class FormValidator {
         this._setEventListeners();
     }
 }
+
+const validationConfig = {
+    inputError: '.popup__error',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+};
+
+export { validationConfig, FormValidator };

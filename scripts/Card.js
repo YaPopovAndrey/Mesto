@@ -1,3 +1,6 @@
+import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
+import { openPopup } from '../utils/utils.js';
+
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -7,7 +10,7 @@ export default class Card {
 
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._cardSelector)
+      .querySelector('.template')
       .content
       .querySelector('.template__card')
       .cloneNode(true);
@@ -63,6 +66,3 @@ export default class Card {
   }
 
 }
-
-import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
-import { openPopup } from '../utils/utils.js';
