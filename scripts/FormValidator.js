@@ -20,14 +20,14 @@ class FormValidator {
         errorElement.classList.remove(this._errorClass);
     }
 
-    deleteErrors(formElement) {
-        Array.from(formElement.querySelectorAll(validationConfig.inputSelector)).forEach(input => {
+    deleteErrors() {
+        Array.from(this._formElement.querySelectorAll(validationConfig.inputSelector)).forEach(input => {
             input.classList.remove(validationConfig.inputErrorClass);
         });
-        Array.from(formElement.querySelectorAll(validationConfig.inputError)).forEach(error => {
+        Array.from(this._formElement.querySelectorAll(validationConfig.inputError)).forEach(error => {
             error.classList.remove(validationConfig.errorClass);
         });
-        formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
+        this._formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
     }
 
     _isValid() {

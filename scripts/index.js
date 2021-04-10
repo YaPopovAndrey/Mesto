@@ -25,13 +25,7 @@ function openEditProfilePopup() {
   openPopup(popupEditProfile);
   inputName.value = profileName.textContent;
   inputJob.value = profileProfession.textContent;
-
-  deleteError(popupEditProfile);
-}
-
-function deleteError(formElement) {
-  const del = new FormValidator(validationConfig, formElement);
-  del.deleteErrors(formElement);
+  editProfileFormValidator.deleteErrors();
 }
 
 function editProfileFormSubmitHandler(evt) {
@@ -44,12 +38,11 @@ function editProfileFormSubmitHandler(evt) {
 
 function openPopupAdd() {
   openPopup(popupAddCard);
-  deleteError(popupAddCard);
+
+  addCardFormValidator.deleteErrors();
 
   submitButtonSelector.classList.add('popup__button_disabled');
   submitButtonSelector.setAttribute('disabled', 'true');
-
-
 
   inputTitle.value = '';
   inputLink.value = '';
@@ -93,5 +86,6 @@ initialCards.forEach((item) => {
 
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 editProfileFormValidator.enableValidation();
+
 const addCardFormValidator = new FormValidator(validationConfig, formElementAdd);
 addCardFormValidator.enableValidation();
