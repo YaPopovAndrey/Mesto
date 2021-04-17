@@ -1,7 +1,8 @@
 import Card from './Card.js';
 import Section from './Section.js';
+import Popup from './Popup.js';
 import { initialCards } from '../utils/initial-сards.js';
-import { openPopup, closePopup } from '../utils/utils.js';
+// import { openPopup, closePopup } from '../utils/utils.js';
 import {
   templateCard,
   popups,
@@ -22,6 +23,10 @@ import {
 } from '../utils/constants.js';
 import { validationConfig, FormValidator } from './FormValidator.js';
 
+const togglePopup = new Popup('.popup');
+togglePopup.setEventListeners();
+
+
 const cardList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -30,13 +35,14 @@ const cardList = new Section({
     cardList.addItem(cardElement);
   },
 },
-'.elements__content'
+container
 );
 
 cardList.renderItems();
 
 function openEditProfilePopup() {
-  openPopup(popupEditProfile);
+  // openPopup(popupEditProfile);
+  togglePopup.open();
   inputName.value = profileName.textContent;
   inputJob.value = profileProfession.textContent;
   editProfileFormValidator.deleteErrors();
@@ -47,11 +53,13 @@ function editProfileFormSubmitHandler(evt) {
 
   profileName.textContent = inputName.value;
   profileProfession.textContent = inputJob.value;
-  closePopup(popupEditProfile);
+  // closePopup(popupEditProfile);
+  togglePopup.close();
 }
 
 function openPopupAdd() {
-  openPopup(popupAddCard);
+  // openPopup(popupAddCard);
+  togglePopup.open();
 
   addCardFormValidator.deleteErrors();
 
@@ -67,19 +75,20 @@ function addFormSubmit(evt) {
   const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }, templateCard);
 
   container.prepend(cardElement);
-  closePopup(popupAddCard);
+  // closePopup(popupAddCard);
+  togglePopup.close();
 }
 
-popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup_is-opened')) {
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains('popup__button-close')) {
-      closePopup(popup);
-    }
-  });
-});
+// popups.forEach((popup) => {
+//   popup.addEventListener('click', (evt) => {
+//     if (evt.target.classList.contains('popup_is-opened')) {
+//       closePopup(popup);
+//     }
+//     if (evt.target.classList.contains('popup__button-close')) {
+//       closePopup(popup);
+//     }
+//   });
+// });
 
 // function createCard(data, template) {
 //   const card = new Card(data, template);
