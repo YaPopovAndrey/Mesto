@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import Section from './Section.js';
 import { initialCards } from '../utils/initial-сards.js';
 import { openPopup, closePopup } from '../utils/utils.js';
 import {
@@ -20,6 +21,19 @@ import {
   inputLink
 } from '../utils/constants.js';
 import { validationConfig, FormValidator } from './FormValidator.js';
+
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = new Card(item, templateCard);
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement);
+  },
+},
+'.elements__content'
+);
+
+cardList.renderItems();
 
 function openEditProfilePopup() {
   openPopup(popupEditProfile);
@@ -67,22 +81,22 @@ popups.forEach((popup) => {
   });
 });
 
-function createCard(data, template) {
-  const card = new Card(data, template);
-  const cardElement = card.generateCard();
-  return cardElement;
-}
+// function createCard(data, template) {
+//   const card = new Card(data, template);
+//   const cardElement = card.generateCard();
+//   return cardElement;
+// }
 
 formElement.addEventListener('submit', editProfileFormSubmitHandler);
 formElementAdd.addEventListener('submit', addFormSubmit);
 popupEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
 popupAddCardOpenBtn.addEventListener('click', openPopupAdd);
 
-initialCards.forEach((item) => {
-  const cardElement = createCard(item, templateCard);
+// initialCards.forEach((item) => {
+//   const cardElement = createCard(item, templateCard);
 
-  container.append(cardElement);
-});
+//   container.append(cardElement);
+// });
 
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 editProfileFormValidator.enableValidation();
