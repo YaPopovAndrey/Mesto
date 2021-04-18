@@ -1,5 +1,5 @@
-import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
-import { openPopup } from '../utils/utils.js';
+// import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
+// import { openPopup } from '../utils/utils.js';
 
 export default class Card {
   constructor(data, templateCard, handleCardClick) {
@@ -44,8 +44,8 @@ export default class Card {
       this._deleteCard();
     });
     this._elementsImage.addEventListener('click', () => {
-      // this._handleCardClick.open(this._elementsImage, this._elementCaption);
-      this._openPopupImg();
+      this._handleCardClick.open(this._elementsImage, this._elementCaption);
+      // this._openPopupImg();
     })
   }
 
@@ -57,15 +57,15 @@ export default class Card {
     this._elementsdelete.closest('.card').remove();
   }
 
-  _openPopupImg() {
-    const caption = this._elementCaption.textContent;
-    const link = this._elementsImage.src;
+  // _openPopupImg() {
+  //   const caption = this._elementCaption.textContent;
+  //   const link = this._elementsImage.src;
 
-    captionPopup.textContent = caption;
-    linkPopup.src = link;
-    linkPopup.alt = caption;
+  //   captionPopup.textContent = caption;
+  //   linkPopup.src = link;
+  //   linkPopup.alt = caption;
 
-    openPopup(popupImg);
-  }
+  //   openPopup(popupImg);
+  // }
 
 }

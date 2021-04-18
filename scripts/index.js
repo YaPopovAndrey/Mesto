@@ -4,24 +4,17 @@ import UserInfo from './UserInfo.js';
 import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 import { initialCards } from '../utils/initial-сards.js';
-import { openPopup, closePopup } from '../utils/utils.js';
 import {
   profilePopup,
   addPopup,
   imagePopup,
   templateCard,
-  popups,
   formElement,
   formElementAdd,
   popupEditProfileOpenBtn,
   popupAddCardOpenBtn,
-  popupAddCard,
-  submitButtonSelector,
   container,
-  popupEditProfile,
-  inputName,
   profileName,
-  inputJob,
   profileProfession,
   inputTitle,
   inputLink
@@ -48,7 +41,7 @@ cardContainer.renderItems();
 
 // Создает новые элементы
 function createCard(data, template) {
-  const card = new Card(data, template);
+  const card = new Card(data, template, picturePopup);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -63,63 +56,9 @@ function ProfileFormSubmit(userData) {
 function addFormSubmit(evt) {
   evt.preventDefault();
   const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }, templateCard);
-
-  //container.prepend(cardElement);
   cardContainer.addItem(cardElement);
-  //closePopup(popupAddCard);
   addCardPopup.close();
 }
-
-
-
-// // Открывает попап профиля, заполняет поля имя и профессии, удаляет ошибки
-// function openEditProfilePopup() {
-//   openPopup(popupEditProfile);
-//   inputName.value = profileName.textContent;
-//   inputJob.value = profileProfession.textContent;
-//   editProfileFormValidator.deleteErrors();
-// }
-
-// // Передает значиня полей в разметку, закрывает попап профиля
-// function editProfileFormSubmitHandler(evt) {
-//   evt.preventDefault();
-
-//   profileName.textContent = inputName.value;
-//   profileProfession.textContent = inputJob.value;
-//   closePopup(popupEditProfile);
-// }
-
-// Открывает попап новой карточки, удаляет ошибки, деактивирует кнопку, очищает поля ввода
-// function openPopupAdd() {
-//   //openPopup(popupAddCard);
-//   addCardPopup.open();
-
-//   addCardFormValidator.deleteErrors();
-
-//   submitButtonSelector.classList.add('popup__button_disabled');
-//   submitButtonSelector.setAttribute('disabled', 'true');
-
-//   inputTitle.value = '';
-//   inputLink.value = '';
-// }
-
-
-
-// Вешает слушатели на все попапы
-// popups.forEach((popup) => {
-//   popup.addEventListener('click', (evt) => {
-//     if (evt.target.classList.contains('popup_is-opened')) {
-//       closePopup(popup);
-//     }
-//     if (evt.target.classList.contains('popup__button-close')) {
-//       closePopup(popup);
-//     }
-//   });
-// });
-
-editProfilePopup.setEventListeners();
-picturePopup.setEventListeners();
-addCardPopup.setEventListeners();
 
 popupEditProfileOpenBtn.addEventListener('click', () => {
   editProfilePopup.open();
@@ -135,11 +74,10 @@ popupAddCardOpenBtn.addEventListener('click', () => {
   addCardFormValidator.deleteErrors();
 });
 
-// Слушатели функций
-// formElement.addEventListener('submit', editProfileFormSubmitHandler);
-formElementAdd.addEventListener('submit', addFormSubmit);
-// popupEditProfileOpenBtn.addEventListener('click', openEditProfilePopup);
-// popupAddCardOpenBtn.addEventListener('click', openPopupAdd);
+editProfilePopup.setEventListeners();
+picturePopup.setEventListeners();
+addCardPopup.setEventListeners();
 
+formElementAdd.addEventListener('submit', addFormSubmit);
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
