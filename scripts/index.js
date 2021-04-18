@@ -1,6 +1,7 @@
 import Card from './Card.js';
 import Section from './Section.js';
 import Popup from './Popup.js';
+import PopupWithImage from './PopupWithImage.js';
 import { initialCards } from '../utils/initial-сards.js';
 // import { openPopup, closePopup } from '../utils/utils.js';
 import {
@@ -106,6 +107,9 @@ popupAddCardOpenBtn.addEventListener('click', openPopupAdd);
 
 //   container.append(cardElement);
 // });
+
+const openImagePopup = new PopupWithImage('.template__card');
+openImagePopup.open(initialCards);
 
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 editProfileFormValidator.enableValidation();

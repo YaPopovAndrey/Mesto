@@ -1,4 +1,4 @@
-import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
+// import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
 // import { openPopup } from '../utils/utils.js';
 
 export default class Card {
@@ -41,9 +41,9 @@ export default class Card {
     this._elementsdelete.addEventListener('click', () => {
       this._deleteCard();
     });
-    this._elementsImage.addEventListener('click', () => {
-      this._openPopupImg();
-    })
+    // this._elementsImage.addEventListener('click', () => {
+    //   this._openPopupImg();
+    // })
   }
 
   _likeCard() {
