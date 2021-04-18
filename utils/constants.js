@@ -16,9 +16,15 @@ const captionPopup = document.querySelector('.popup__caption');
 const linkPopup = document.querySelector('.popup__image');
 const popups = document.querySelectorAll('.popup');
 const submitButtonSelector = popupAddCard.querySelector('.popup__button');
-const templateCard = document.querySelector('.template');
+const templateCard = '.template';
+const profilePopup = '.popup_edit-profile';
+const addPopup = '.popup_add';
+const imagePopup = '.popup_img';
 
 export {
+    profilePopup,
+    addPopup,
+    imagePopup,
     templateCard,
     captionPopup,
     linkPopup,

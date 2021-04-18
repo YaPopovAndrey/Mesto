@@ -1,11 +1,9 @@
-// import { captionPopup, linkPopup, popupImg } from '../utils/constants.js';
-// import { openPopup } from '../utils/utils.js';
-
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, templateCard, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
-    this._cardSelector = cardSelector;
+    this._templateCard = templateCard;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -23,11 +21,12 @@ export default class Card {
     this._elementsLike = this._element.querySelector('.elements__like');
     this._elementsdelete = this._element.querySelector('.elements__delete');
     this._elementsImage = this._element.querySelector('.elements__image');
+    this._elementCaption = this._element.querySelector('.elements__caption');
 
 
     this._elementsImage.src = this._link;
     this._elementsImage.alt = this._name;
-    this._element.querySelector('.elements__caption').textContent = this._name;
+    this._elementCaption.textContent = this._name;
 
     this._setEventListeners();
 
@@ -41,9 +40,9 @@ export default class Card {
     this._elementsdelete.addEventListener('click', () => {
       this._deleteCard();
     });
-    // this._elementsImage.addEventListener('click', () => {
-    //   this._openPopupImg();
-    // })
+    this._elementsImage.addEventListener('click', () => {
+      this._handleCardClick.open(this._elementsImage, this._elementCaption);
+    })
   }
 
   _likeCard() {
@@ -53,16 +52,4 @@ export default class Card {
   _deleteCard() {
     this._elementsdelete.closest('.card').remove();
   }
-
-  // _openPopupImg() {
-  //   const caption = this._element.querySelector('.elements__caption').textContent;
-  //   const link = this._elementsImage.src;
-
-  //   captionPopup.textContent = caption;
-  //   linkPopup.src = link;
-  //   linkPopup.alt = caption;
-
-  //   openPopup(popupImg);
-  // }
-
 }
