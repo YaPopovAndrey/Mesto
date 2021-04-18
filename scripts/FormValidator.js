@@ -30,6 +30,12 @@ class FormValidator {
         this._formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
     }
 
+    // resetButton() {
+    //     const button = this._formElement.querySelector(validationConfig.submitButtonSelector);
+    //     button.classList.add('popup__button_disabled');
+    //     button.setAttribute('disabled', 'disabled');
+    // }
+
     _isValid() {
         this._inputList.forEach(inputElement => {
             const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
