@@ -30,6 +30,11 @@ class FormValidator {
         this._formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
     }
 
+    resetButtonSubmit() {
+        this._submitButtonElement.classList.add('popup__button_disabled');
+        this._submitButtonElement.setAttribute('disabled', 'true');
+    }
+
     _isValid() {
         this._inputList.forEach(inputElement => {
             const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);

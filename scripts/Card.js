@@ -30,6 +30,8 @@ export default class Card {
 
     this._setEventListeners();
 
+    console.log(this._element);
+
     return this._element;
   }
 

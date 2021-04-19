@@ -5,6 +5,8 @@ import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 import { initialCards } from '../utils/initial-сards.js';
 import {
+  inputName,
+  inputJob,
   profilePopup,
   addPopup,
   imagePopup,
@@ -15,69 +17,65 @@ import {
   popupAddCardOpenBtn,
   container,
   profileName,
-  profileProfession,
-  inputTitle,
-  inputLink
+  profileProfession
 } from '../utils/constants.js';
 import { validationConfig, FormValidator } from './FormValidator.js';
 
 // экземпляры классов
 const userInfo = new UserInfo({ profileName, profileProfession });
-const picturePopup = new PopupWithImage(imagePopup);
-const editProfilePopup = new PopupWithForm(profilePopup, ProfileFormSubmit);
-const addCardPopup = new PopupWithForm(addPopup, addFormSubmit);
+const popupImage = new PopupWithImage(imagePopup);
+const popupProfile = new PopupWithForm(profilePopup, profileFormSubmit);
+const popupAddCard = new PopupWithForm(addPopup, addFormSubmit);
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 const addCardFormValidator = new FormValidator(validationConfig, formElementAdd);
 
-const cardContainer = new Section({
+const cardList = new Section({
   items: initialCards,
-  renderer: (cardData) => {
-    const cardElement = createCard(cardData);
-    cardContainer.addItem(cardElement);
+  renderer: (data) => {
+    const cardElement = createCard(data);
+    cardList.addItem(cardElement);
   }
 }, container);
 
-cardContainer.renderItems();
+cardList.renderItems();
 
 // Создает новые элементы
-function createCard(data, template) {
-  const card = new Card(data, template, picturePopup);
+function createCard(data) {
+  const card = new Card(data, templateCard, popupImage);
   const cardElement = card.generateCard();
   return cardElement;
 }
 
 // Сабмит профиля
-function ProfileFormSubmit(userData) {
+function profileFormSubmit(userData) {
   userInfo.setUserInfo(userData);
-  editProfilePopup.close();
+  popupProfile.close();
 }
 
 // Сабмит новых карточек
-function addFormSubmit(evt) {
-  evt.preventDefault();
-  const cardElement = createCard({ name: inputTitle.value, link: inputLink.value }, templateCard);
-  cardContainer.addItem(cardElement);
-  addCardPopup.close();
+function addFormSubmit(data) {
+  const cardElement = createCard(data);
+  cardList.addItem(cardElement);
+  popupAddCard.close();
 }
 
 popupEditProfileOpenBtn.addEventListener('click', () => {
-  editProfilePopup.open();
+  popupProfile.open();
   const userData = userInfo.getUserInfo();
-  profileName.value = userData.inputName;
-  profileProfession.value = userData.inputJob;
+  inputName.value = userData.profileName;
+  inputJob.value = userData.profileProfession;
   editProfileFormValidator.deleteErrors();
 });
 
 popupAddCardOpenBtn.addEventListener('click', () => {
-  addCardPopup.open();
-  
+  popupAddCard.open();
   addCardFormValidator.deleteErrors();
+  addCardFormValidator.resetButtonSubmit();
 });
 
-editProfilePopup.setEventListeners();
-picturePopup.setEventListeners();
-addCardPopup.setEventListeners();
+popupProfile.setEventListeners();
+popupImage.setEventListeners();
+popupAddCard.setEventListeners();
 
-formElementAdd.addEventListener('submit', addFormSubmit);
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();

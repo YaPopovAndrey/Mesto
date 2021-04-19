@@ -11,7 +11,7 @@ export default class PopupWithImage extends Popup{
 
         image.src = elementImage.src;
         caption.textContent = elementCaption.textContent;
-        caption.alt = elementCaption.textContent;
+        image.alt = elementCaption.textContent;
 
         super.open();
     }
