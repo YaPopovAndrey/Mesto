@@ -19,9 +19,6 @@ module.exports = {
     compress: true,
     port: 8080
   },
-//   stats: {
-//     children: true
-//   },
   module: {
     rules: [{
       test: /\.js$/,
