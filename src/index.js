@@ -1,9 +1,10 @@
-import Card from '../components/Card.js';
-import Section from '../components/Section.js';
-import UserInfo from '../components/UserInfo.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import { initialCards } from '../utils/initial-сards.js';
+import '../src/page/index.css';
+import Card from './components/Card.js';
+import Section from './components/Section.js';
+import UserInfo from './components/UserInfo.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import { initialCards } from './utils/initial-сards.js';
 import {
   inputName,
   inputJob,
@@ -18,8 +19,8 @@ import {
   container,
   profileName,
   profileProfession
-} from '../utils/constants.js';
-import { validationConfig, FormValidator } from '../components/FormValidator.js';
+} from './utils/constants.js';
+import { validationConfig, FormValidator } from './components/FormValidator.js';
 
 // экземпляры классов
 const userInfo = new UserInfo({ profileName, profileProfession });

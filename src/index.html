@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./page/index.css">
     <title>Место</title>
 </head>
 
 <body class="body">
     <div class="root">
         <header class="header root__section">
-            <img src="./images/logo.svg" alt="Логотип Место" class="header__logo">
+            <img src="<%=require('./images/logo.svg')%>" alt="Логотип Место" class="header__logo">
         </header>
         <main class="content">
             <section class="profile root__section">
-                <img src="./images/avatar.jpg" alt="Аватарка" class="profile__avatar">
+                <img src="<%=require('./images/avatar.jpg')%>" alt="Аватарка" class="profile__avatar">
                 <div class="profile__info">
                     <div class="profile__name-section">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -87,7 +86,6 @@
             <p class="footer__copirate">&copy; 2021 Mesto Russia</p>
         </footer>
     </div>
-    <script type="module" src="./page/index.js"></script>
 </body>
 
 </html>
