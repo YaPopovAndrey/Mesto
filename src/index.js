@@ -42,9 +42,13 @@ cardList.renderItems();
 
 // Создает новые элементы
 function createCard(data) {
-  const card = new Card(data, templateCard, popupImage);
+  const card = new Card(data, templateCard, handleCardClick);
   const cardElement = card.generateCard();
   return cardElement;
+}
+
+function handleCardClick(elementImage, elementCaption) {
+  popupImage.open(elementImage, elementCaption);
 }
 
 // Сабмит профиля

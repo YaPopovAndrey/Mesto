@@ -6,6 +6,7 @@ class FormValidator {
         this._inactiveButtonClass = validationConfig.inactiveButtonClass;
         this._inputErrorClass = validationConfig.inputErrorClass;
         this._errorClass = validationConfig.errorClass;
+        this._validationConfig = validationConfig;
     }
 
     _showInputError(inputElement, errorElement) {
@@ -21,17 +22,17 @@ class FormValidator {
     }
 
     deleteErrors() {
-        Array.from(this._formElement.querySelectorAll(validationConfig.inputSelector)).forEach(input => {
-            input.classList.remove(validationConfig.inputErrorClass);
+        Array.from(this._formElement.querySelectorAll(this._validationConfig.inputSelector)).forEach(input => {
+            input.classList.remove(this._validationConfig.inputErrorClass);
         });
-        Array.from(this._formElement.querySelectorAll(validationConfig.inputError)).forEach(error => {
-            error.classList.remove(validationConfig.errorClass);
+        Array.from(this._formElement.querySelectorAll(this._validationConfig.inputError)).forEach(error => {
+            error.classList.remove(this._validationConfig.errorClass);
         });
-        this._formElement.querySelector(validationConfig.submitButtonSelector).classList.remove(validationConfig.inactiveButtonClass);
+        this._formElement.querySelector(this._validationConfig.submitButtonSelector).classList.remove(this._validationConfig.inactiveButtonClass);
     }
 
     resetButtonSubmit() {
-        this._submitButtonElement.classList.add('popup__button_disabled');
+        this._submitButtonElement.classList.add(this._validationConfig.inactiveButtonClass);
         this._submitButtonElement.setAttribute('disabled', 'true');
     }
 
