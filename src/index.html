@@ -14,7 +14,9 @@
         </header>
         <main class="content">
             <section class="profile root__section">
-                <img src="<%=require('./images/avatar.jpg')%>" alt="Аватарка" class="profile__avatar">
+                <div class="profile__image">
+                    <img src="<%=require('./images/avatar.jpg')%>" alt="Аватарка" class="profile__avatar">
+                </div>
                 <div class="profile__info">
                     <div class="profile__name-section">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -36,19 +38,46 @@
                         <img src="#" alt="Домбай" class="elements__image">
                         <div class="elements__title">
                             <h2 class="elements__caption"></h2>
-                            <button type="button" class="elements__like"></button>
+                            <div class="elements__like-box">
+                                <button type="button" class="elements__like"></button>
+                                <span class="elements__like-count">0</span>
+                            </div>
                         </div>
                     </div>
                 </li>
             </template>
 
+            <div class="popup popup_update-avatar">
+                <div class="popup__content popup__update-avatar">
+                    <h2 class="popup__title popup__title_update-avatar">Обновить аватар</h2>
+                    <input type="url" name="link" id="updateUrlInput" placeholder="Ссылка на картинку"
+                        class="popup__input popup__input_update-avatar" required>
+                    <span class="updateUrlInput-error popup__error"></span>
+                    <button type="submit" class="popup__button popup__button_update-avatar">Сохранить</button>
+                    <button type="button" aria-label="Закрыть"
+                        class="popup__button-close popup__button-close_confirm"></button>
+                </div>
+            </div>
+
+            <div class="popup popup_confirm">
+                <div class="popup__content popup__content_confirm">
+                    <h2 class="popup__title popup__title_confirm">Вы уверены?</h2>
+                    <button type="submit" class="popup__button popup__button_confirm">Да</button>
+                    <button type="button" aria-label="Закрыть"
+                        class="popup__button-close popup__button-close_confirm"></button>
+                </div>
+            </div>
+
             <div class="popup popup_edit-profile">
                 <div class="popup__content">
                     <form action="#" name="popupForm" class="popup__form" novalidate>
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input type="text" name="profileName" id="nameInput" value="Жак-Ив Кусто" placeholder="Имя" class="popup__input popup__input_name" minlength="2" maxlength="40" required>
+                        <input type="text" name="profileName" id="nameInput" value="Жак-Ив Кусто" placeholder="Имя"
+                            class="popup__input popup__input_name" minlength="2" maxlength="40" required>
                         <span class="nameInput-error popup__error"></span>
-                        <input type="text" name="profileProfession" id="jobInput" value="Исследователь океана" placeholder="Вид деятельности" class="popup__input popup__input_job" minlength="2" maxlength="200" required>
+                        <input type="text" name="profileProfession" id="jobInput" value="Исследователь океана"
+                            placeholder="Вид деятельности" class="popup__input popup__input_job" minlength="2"
+                            maxlength="200" required>
                         <span class="jobInput-error popup__error"></span>
                         <button type="submit" class="popup__button">Сохранить</button>
                         <button type="button" aria-label="Закрыть" class="popup__button-close"></button>
@@ -60,12 +89,15 @@
                 <div class="popup__content popup__content_add">
                     <form action="#" name="popupFormAdd" class="popup__form popup__form_add" novalidate>
                         <h2 class="popup__title popup__title_add">Новое место</h2>
-                        <input type="text" name="name" id="titleInput" placeholder="Название" class="popup__input popup__input_title" minlength="2" maxlength="30" required>
+                        <input type="text" name="name" id="titleInput" placeholder="Название"
+                            class="popup__input popup__input_title" minlength="2" maxlength="30" required>
                         <span class="titleInput-error popup__error"></span>
-                        <input type="url" name="link" id="urlInput" placeholder="Ссылка на картинку" class="popup__input popup__input_link" required>
+                        <input type="url" name="link" id="urlInput" placeholder="Ссылка на картинку"
+                            class="popup__input popup__input_link" required>
                         <span class="urlInput-error popup__error"></span>
                         <button type="submit" class="popup__button popup__button_add">Создать</button>
-                        <button type="button" aria-label="Закрыть" class="popup__button-close popup__button-close_add"></button>
+                        <button type="button" aria-label="Закрыть"
+                            class="popup__button-close popup__button-close_add"></button>
                     </form>
                 </div>
             </div>

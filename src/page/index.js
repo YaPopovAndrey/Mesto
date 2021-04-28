@@ -64,6 +64,13 @@ function addFormSubmit(data) {
   popupAddCard.close();
 }
 
+const popupEditAvatar = document.querySelector('.popup_update-avatar');
+const popupEditAvatarOpen = document.querySelector('.profile__avatar');
+
+popupEditAvatarOpen.addEventListener('click', () => {
+  popupEditAvatar.classList.add('popup_is-opened');
+});
+
 popupEditProfileOpenBtn.addEventListener('click', () => {
   popupProfile.open();
   const userData = userInfo.getUserInfo();
