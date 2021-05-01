@@ -1,3 +1,6 @@
+const editAvatarForm = document.querySelector('.popup__form_update-avatar');
+const inputAvatar = document.querySelector('.popup__input_update-avatar');
+const popupEditAvatarOpen = document.querySelector('.profile__avatar');
 const popupEditProfileOpenBtn = document.querySelector('.profile__edit-button');
 const popupAddCardOpenBtn = document.querySelector('.profile__add-button');
 const formElement = document.querySelector('.popup__form');
@@ -11,8 +14,15 @@ const templateCard = '.template';
 const profilePopup = '.popup_edit-profile';
 const addPopup = '.popup_add';
 const imagePopup = '.popup_img';
+const popupConfirm = '.popup_confirm';
+const popupEditAvatar = '.popup_update-avatar';
 
 export {
+  editAvatarForm,
+  inputAvatar,
+  popupConfirm,
+  popupEditAvatar,
+  popupEditAvatarOpen,
   inputName,
   inputJob,
   profilePopup,

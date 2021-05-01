@@ -1,4 +1,5 @@
 import './index.css';
+import Api from '../components/Api.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -18,7 +19,12 @@ import {
   popupAddCardOpenBtn,
   container,
   profileName,
-  profileProfession
+  profileProfession,
+  popupConfirm,
+  popupEditAvatar,
+  popupEditAvatarOpen,
+  editAvatarForm,
+  inputAvatar
 } from '../utils/constants.js';
 import { validationConfig, FormValidator } from '../components/FormValidator.js';
 
@@ -27,18 +33,32 @@ const userInfo = new UserInfo({ profileName, profileProfession });
 const popupImage = new PopupWithImage(imagePopup);
 const popupProfile = new PopupWithForm(profilePopup, profileFormSubmit);
 const popupAddCard = new PopupWithForm(addPopup, addFormSubmit);
+const avatarEditPopup = new PopupWithForm(popupEditAvatar, avatarFormSubmit);
+const confirmPopup = new PopupWithForm(popupConfirm, confirmFormSubmit);
 const editProfileFormValidator = new FormValidator(validationConfig, formElement);
 const addCardFormValidator = new FormValidator(validationConfig, formElementAdd);
-
-const cardList = new Section({
-  items: initialCards,
-  renderer: (data) => {
-    const cardElement = createCard(data);
-    cardList.addItem(cardElement);
+const editAvatarFormValidator = new FormValidator(validationConfig, editAvatarForm);
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-23/cards',
+  headers: {
+    authorization: '6bb43f5c-9c55-4b96-82c0-2583ec7e1ebb',
+    "content-type": "application/json"
   }
-}, container);
+});
 
-cardList.renderItems();
+const allCards = api.getAllCards();
+allCards.then((res) => {
+  const cardList = new Section({
+    items: res,
+    renderer: (data) => {
+      const cardElement = createCard(data);
+      cardList.addItem(cardElement);
+    }
+  }, container,
+  api);
+  cardList.renderItems(); 
+})
+.catch((err) => alert(err));
 
 // Создает новые элементы
 function createCard(data) {
@@ -51,6 +71,17 @@ function handleCardClick(elementImage, elementCaption) {
   popupImage.open(elementImage, elementCaption);
 }
 
+// Сабмит формы смены аватара
+function avatarFormSubmit() {
+  popupEditAvatarOpen.src = inputAvatar.value;
+  avatarEditPopup.close();
+}
+
+// Сабмит подтверждения
+function confirmFormSubmit() {
+  confirmPopup.close();
+}
+
 // Сабмит профиля
 function profileFormSubmit(userData) {
   userInfo.setUserInfo(userData);
@@ -60,15 +91,14 @@ function profileFormSubmit(userData) {
 // Сабмит новых карточек
 function addFormSubmit(data) {
   const cardElement = createCard(data);
-  cardList.addItem(cardElement);
+  cardList._saveItems(cardElement);
   popupAddCard.close();
 }
 
-const popupEditAvatar = document.querySelector('.popup_update-avatar');
-const popupEditAvatarOpen = document.querySelector('.profile__avatar');
-
 popupEditAvatarOpen.addEventListener('click', () => {
-  popupEditAvatar.classList.add('popup_is-opened');
+  avatarEditPopup.open();
+  inputAvatar.value = popupEditAvatarOpen.src;
+  editAvatarFormValidator.deleteErrors();
 });
 
 popupEditProfileOpenBtn.addEventListener('click', () => {
@@ -88,6 +118,8 @@ popupAddCardOpenBtn.addEventListener('click', () => {
 popupProfile.setEventListeners();
 popupImage.setEventListeners();
 popupAddCard.setEventListeners();
+avatarEditPopup.setEventListeners();
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
