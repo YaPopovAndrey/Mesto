@@ -51,7 +51,7 @@
                 <div class="popup__content popup__update-avatar">
                     <form action="#" name="avatarForm" class="popup__form popup__form_update-avatar" novalidate>
                         <h2 class="popup__title popup__title_update-avatar">Обновить аватар</h2>
-                        <input type="url" name="AvatarLink" id="updateUrlInput" placeholder="Ссылка на картинку"
+                        <input type="url" name="avatar" id="updateUrlInput" placeholder="Ссылка на картинку"
                             class="popup__input popup__input_update-avatar" required>
                         <span class="updateUrlInput-error popup__error"></span>
                         <button type="submit" class="popup__button popup__button_update-avatar">Сохранить</button>
@@ -72,12 +72,12 @@
 
             <div class="popup popup_edit-profile">
                 <div class="popup__content">
-                    <form action="#" name="popupForm" class="popup__form" novalidate>
+                    <form action="#" name="popupForm" class="popup__form popup__form_edit" novalidate>
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input type="text" name="profileName" id="nameInput" value="Жак-Ив Кусто" placeholder="Имя"
+                        <input type="text" name="name" id="nameInput" value="Жак-Ив Кусто" placeholder="Имя"
                             class="popup__input popup__input_name" minlength="2" maxlength="40" required>
                         <span class="nameInput-error popup__error"></span>
-                        <input type="text" name="profileProfession" id="jobInput" value="Исследователь океана"
+                        <input type="text" name="about" id="jobInput" value="Исследователь океана"
                             placeholder="Вид деятельности" class="popup__input popup__input_job" minlength="2"
                             maxlength="200" required>
                         <span class="jobInput-error popup__error"></span>
